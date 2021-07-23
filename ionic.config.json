@@ -1,0 +1,7 @@
+{
+  "name": "performancePipeExample",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
