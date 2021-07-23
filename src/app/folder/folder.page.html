@@ -8,14 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- This method runs everytime when the change detection works so you can see in console that
+  many unneccessay calls are there although there is no data change so we need to use "pure" pipe  -->
+
+ <!-- <div *ngFor="let item of userService.users">
+   {{item.name}} - {{getTheory(item.id)?.title}}
+ </div> -->
+
+ <!-- PERFORMANCE OPTİMİZATİON PART -->
+
+ <div *ngFor="let item of userService.users">
+   {{item.name}} - {{ item.id | getUserTheory:'title' }}
+ </div>
 </ion-content>
